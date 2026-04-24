@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #961728;
+  --color-brand-secondary: #EEE5DA;
+  --color-gray-300: #DDDBDB;
+  --color-gray-500: #B3B3B3;
+  --color-gray-700: #666666;
+  --color-gray-900: #686868;
+  --color-black-500: #262424;
+  --color-black-300: #686868;
+  --color-white-500: #FEFEFE;
+  --font-grafton: "UM Grafton", sans-serif;
+  --font-grassroots: "Grassroots", sans-serif;
+}
+
+@font-face {
+  font-family: 'UM Grafton';
+  src: url('/fonts/Grafton%20Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UM Grafton';
+  src: url('/fonts/Grafton%20Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UM Grafton';
+  src: url('/fonts/Grafton%20Semi%20Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UM Grafton';
+  src: url('/fonts/Grafton%20Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Grassroots';
+  src: url('/fonts/Grassroot.woff') format('woff'); 
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+  font-family: var(--font-grafton);
+  background-color: var(--color-brand-secondary);
+  color: var(--color-black-500);
+}
