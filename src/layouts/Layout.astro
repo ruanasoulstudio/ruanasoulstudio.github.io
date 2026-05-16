@@ -1,12 +1,177 @@
+---
+import "../styles/global.css";
+
+export interface Props {
+	/** Page <title> — keep under 60 chars */
+	title?: string;
+	/** Meta description — keep 120-155 chars */
+	description?: string;
+	/** Canonical URL for this page */
+	canonical?: string;
+	/** Absolute URL to OG share image (1200×630 recommended) */
+	ogImage?: string;
+	/** OG type: 'website' | 'article' */
+	ogType?: "website" | "article";
+	/** Article published date (ISO string, used only when ogType='article') */
+	articlePublishedTime?: string;
+	/** noindex — set true for legal/utility pages you don't want indexed */
+	noindex?: boolean;
+	/** Page language — defaults to 'en' */
+	lang?: string;
+}
+
+const {
+	title = "Ruan Soul Studio | Branding & Marketing Agency in Melbourne",
+	description = "At Ruan Soul Studio, we create brands that speak your truth. Specializing in branding, web design, and marketing strategies that capture your authentic story.",
+	canonical = "https://ruanasoulstudio.com/",
+	ogImage = "https://ruanasoulstudio.com/og-image.jpg",
+	ogType = "website",
+	articlePublishedTime,
+	noindex = false,
+	lang = "en",
+} = Astro.props;
+
+const siteName = "Ruan Soul Studio";
+const twitterHandle = "@ruanasoulstudio";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<!-- Favicons -->
+		<link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+
+		<!-- Fallbacks -->
+		<link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" href="/favicon/favicon-16x16.png" sizes="16x16" />
+
+		<!-- Apple -->
+		<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+
+		<!-- Android / PWA -->
+		<link rel="manifest" href="/favicon/site.webmanifest.json" />
+
+		<!-- Color UI navegador -->
+		<meta name="theme-color" content="#1C1C1C" />
+
+		<!-- ─── SEO Fundamentals ──────────────────────────────────── -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+
+		<!-- Robots -->
+		{
+			noindex ? (
+				<meta name="robots" content="noindex, nofollow" />
+			) : (
+				<meta
+					name="robots"
+					content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+				/>
+			)
+		}
+
+		<!-- ─── Open Graph ────────────────────────────────────────── -->
+		<meta property="og:type" content={ogType} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:image:alt"
+			content={`${siteName} - Branding & Marketing Agency in Melbourne`}
+		/>
+		<meta property="og:locale" content="en_AU" />
+		{
+			ogType === "article" && articlePublishedTime && (
+				<meta
+					property="article:published_time"
+					content={articlePublishedTime}
+				/>
+			)
+		}
+
+		<!-- ─── Twitter / X Card ─────────────────────────────────── -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content={twitterHandle} />
+		<meta name="twitter:creator" content={twitterHandle} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		<meta
+			name="twitter:image:alt"
+			content={`${siteName} - Branding & Marketing Agency in Melbourne`}
+		/>
+
+		<!-- ─── Extra SEO signals ─────────────────────────────────── -->
+		<meta name="theme-color" content="var(--color-brand-tertiary)" />
+		<meta name="author" content="Ruan Soul Studio" />
+		<meta
+			name="keywords"
+			content="Ruan Soul Studio, Branding, Marketing, Graphic Design, Web Design, Social Media"
+		/>
+
+		{
+			import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && (
+				<meta
+					name="google-site-verification"
+					content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION}
+				/>
+			)
+		}
+
+		<!-- ─── JSON-LD – Organization & WebSite ─────────────────── -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify([
+				{
+					"@context": "https://schema.org",
+					"@type": "Organization",
+					"@id": "https://ruanasoulstudio.com/#organization",
+					name: "Ruan Soul Studio",
+					url: "https://ruanasoulstudio.com",
+					logo: "https://ruanasoulstudio.com/favicon/favicon.svg",
+					description: description,
+					contactPoint: {
+						"@type": "ContactPoint",
+						email: "ruanasoulstudio@gmail.com",
+						contactType: "customer support",
+					},
+					sameAs: ["https://www.instagram.com/ruanasoulstudio"],
+				},
+				{
+					"@context": "https://schema.org",
+					"@type": "WebSite",
+					"@id": "https://ruanasoulstudio.com/#website",
+					url: "https://ruanasoulstudio.com",
+					name: "Ruan Soul Studio",
+					description: "Branding & Marketing Agency in Melbourne",
+					publisher: {
+						"@id": "https://ruanasoulstudio.com/#organization",
+					},
+				},
+			])}
+		/>
+
+		<!-- ─── Fonts ─────────────────────────────────────────────── -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="preload"
+			as="style"
+			href="https://fonts.googleapis.com/css2?family=Anton&family=Grafton:wght@300;500;700;900&family=Grassroots&display=swap"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anton&family=Grafton:wght@300;500;700;900&family=Grassroots&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<slot />
@@ -14,10 +179,21 @@
 </html>
 
 <style>
-	html,
-	body {
+	html {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+		background-color: var(--color-brand-tertiary);
+		box-sizing: border-box;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1920px;
+		overflow-x: hidden;
+		font-family: var(--font-grafton);
 	}
 </style>

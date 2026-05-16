@@ -1,55 +1,447 @@
 ---
 import "../styles/global.css";
-import Card__hero from "../components/molecules/card_hero.astro";
 import preview from "../assets/Videos/preview.mp4";
 ---
 
-<section
-	class="flex flex-col justify-between pt-24 pb-8 items-center h-screen overflow-hidden"
+<header
+	class="relative z-0 flex flex-col justify-center items-center h-dvh min-h-dvh lg:h-screen lg:max-h-screen lg:flex-row lg:justify-between gap-6 lg:gap-20 px-4 md:px-8 lg:px-24 pt-16 lg:pt-24 pb-8 lg:py-24 max-w-[1920px] mx-auto overflow-hidden"
 >
-	<article class="flex flex-col items-center px-6">
+	<article
+		class="w-full lg:w-fit flex flex-col items-center justify-center lg:items-start lg:justify-between h-auto gap-2 lg:gap-4"
+	>
 		<h1
-			class="flex flex-col items-center text-center gap-2 text-4xl md:text-6xl font-black text-black-500 leading-tight"
+			class="entrance-title block w-full font-anton uppercase text-center text-3xl lg:text-[clamp(5rem,9vw,11rem)] leading-[0.9] tracking-tight lg:text-left text-gradient-brand"
 		>
-			Strategic Content Multimedia <span
-				class="text-4xl md:text-6xl lg:text-7xl font-bold text-brand-primary font-grassroots"
-				>for Brands in Melbourne</span>
+			Strategic Multimedia Design
 		</h1>
-		
-		<p class="text-center text-sm md:text-base w-full text-black-300">
-			Create high-quality content for brands that want
-			to stand out from the competition
+		<span
+			class="entrance-subtitle w-full font-anton uppercase text-2xl lg:text-[clamp(1.5rem,2.5vw,3rem)] text-center text-black-500 text-fill-current lg:text-left"
+			>For Brands in Melbourne
+		</span>
+		<div class="entrance-status flex items-center justify-center lg:justify-start gap-2 w-full">
+			<!-- Dot activo con ondas -->
+			<div class="relative flex items-center justify-center w-4 h-4">
+				<span
+					id="status-wave-1"
+					class="absolute inset-0 rounded-full bg-brand-primary opacity-0"
+				></span>
+				<span
+					id="status-wave-2"
+					class="absolute inset-0 rounded-full bg-brand-primary opacity-0"
+				></span>
+				<span
+					id="status-wave-3"
+					class="absolute inset-0 rounded-full bg-brand-primary opacity-0"
+				></span>
+				<span
+					id="status-dot"
+					class="relative w-2 h-2 rounded-full bg-brand-primary block"
+				></span>
+			</div>
+			<p class="text-sm text-black-300">Available for new projects</p>
+		</div>
+	</article>
+	<article
+		class="w-full max-w-xl flex flex-col lg:flex-col-reverse justify-between h-auto gap-4"
+	>
+		<div
+			class="flex flex-col-reverse gap-4 lg:flex-row justify-between items-center"
+		>
+			<div
+				class="w-full lg:w-1/3 lg:items-start flex lg:flex-col justify-between items-center px-4 lg:px-0 h-full gap-4 lg:gap-8"
+			>
+				<div class="entrance-stat flex lg:flex-col gap-1 items-center lg:items-start">
+					<p class="text-xl font-black lg:text-6xl text-black-500">
+						<span id="count-projects">0</span>+
+					</p>
+					<p
+						class="flex w-auto text-[10px] lg:text-[10px] uppercase text-black-300 font-grafton leading-none"
+					>
+						Design Projects
+					</p>
+				</div>
+				<div class="entrance-stat flex lg:flex-col gap-1 items-center lg:items-start">
+					<p class="text-xl lg:text-6xl font-black text-black-500">
+						<span id="count-years">0</span>+
+					</p>
+					<p
+						class="flex w-auto text-[10px] lg:text-[10px] uppercase text-black-300 font-grafton leading-none"
+					>
+						Years Experience
+					</p>
+				</div>
+			</div>
+			<div class="flex flex-col lg:flex-row justify-between w-auto">
+				<div
+					class="flex flex-col justify-between gap-4 items-center lg:items-end"
+				>
+					<p
+						id="info-description"
+						class="entrance-info text-[10px] font-normal text-black-300 font-grafton leading-relaxed uppercase text-center lg:text-end "
+					>
+						Every detail we craft carries clarity, intention,<br />
+						and quiet confidence. That's how we design<br />
+						and build websites that work – and feel right.
+					</p>
+					<p
+						id="info-slogan"
+						class="entrance-info text-[10px] uppercase tracking-widest hidden lg:block text-black-300 font-grafton"
+					>
+						Let's build something that feels right
+					</p>
+					<a
+						id="entrance-cta"
+						href="#contact"
+						class="cta-button items-center hidden lg:flex w-fit gap-3 bg-black-700 text-white-500 font-grafton text-sm pl-4 px-2 py-2 rounded-full hover:bg-black-500 transition-colors duration-300"
+					>
+						Start a new project with us
+						<span
+							class="rocket-container w-8 h-8 rounded-full bg-brand-tertiary flex items-center justify-center text-xs overflow-hidden"
+							><svg
+								class="rocket-icon"
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#121314"
+								><path
+									d="m226-559 78 33q14-28 29-54t33-52l-56-11-84 84Zm142 83 114 113q42-16 90-49t90-75q70-70 109.5-155.5T806-800q-72-5-158 34.5T492-656q-42 42-75 90t-49 90Zm155-121.5q0-33.5 23-56.5t57-23q34 0 57 23t23 56.5q0 33.5-23 56.5t-57 23q-34 0-57-23t-23-56.5ZM565-220l84-84-11-56q-26 18-52 32.5T532-299l33 79Zm313-653q19 121-23.5 235.5T708-419l20 99q4 20-2 39t-20 33L538-80l-84-197-171-171-197-84 167-168q14-14 33.5-20t39.5-2l99 20q104-104 218-147t235-24ZM157-321q35-35 85.5-35.5T328-322q35 35 34.5 85.5T327-151q-25 25-83.5 43T82-76q14-103 32-161.5t43-83.5Zm57 56q-10 10-20 36.5T180-175q27-4 53.5-13.5T270-208q12-12 13-29t-11-29q-12-12-29-11.5T214-265Z"
+								></path></svg
+							></span
+						>
+					</a>
+					<p
+						id="info-scroll"
+						class="entrance-info lg:flex items-center text-[10px] hidden uppercase tracking-widest text-black-300 font-grafton"
+					>
+						Scroll Down <svg
+							xmlns="http://www.w3.org/2000/svg"
+							height="20px"
+							viewBox="0 -960 960 960"
+							width="20px"
+							fill="#262424"
+							><path
+								d="M480-288 288-480l51-51 105 105v-294h72v294l105-105 51 51-192 192Z"
+							></path></svg
+						>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Video (Ahora arriba en el HTML para orden natural) -->
+		<div
+			id="video-trigger"
+			class="group relative w-full h-auto cursor-pointer"
+		>
+			<div
+				class="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500"
+			>
+				<div
+					class="bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-full text-white shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						height="32px"
+						viewBox="0 -960 960 960"
+						width="32px"
+						fill="currentColor"
+						><path
+							d="M120-120v-200h80v120h120v80H120Zm520 0v-80h120v-120h80v200H640ZM120-640v-200h200v80H200v120h-80Zm640 0v-120H640v-80h200v200h-80Z"
+						></path></svg
+					>
+				</div>
+			</div>
+			<video
+				src={preview}
+				autoplay
+				muted
+				loop
+				playsinline
+				class="w-full h-full object-cover rounded-2xl"></video>
+		</div>
+	</article>
+
+	<!-- Modal de Video Expandido -->
+	<div id="video-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 md:p-10">
+		<div id="modal-bg" class="absolute inset-0 bg-black/40 backdrop-blur-xl opacity-0"></div>
+		<div id="modal-content" class="relative w-full max-w-6xl aspect-video rounded-3xl overflow-hidden shadow-2xl opacity-0 scale-90">
+			<video id="modal-video" src={preview} loop playsinline class="w-full h-full object-cover"></video>
+			<button id="close-modal" class="absolute top-4 right-4 md:top-8 md:right-8 text-white bg-black/20 hover:bg-white/20 backdrop-blur-md w-12 h-12 rounded-full flex items-center justify-center transition-all z-20">
+				<svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+			</button>
+		</div>
+	</div>
+	<article class="w-full h-auto flex flex-col gap-1 lg:hidden items-center">
+		<p
+			class="entrance-info text-[10px] uppercase tracking-widest text-black-300 font-grafton"
+		>
+			Let's build something that feels right
+		</p>
+		<a
+			href="#contact"
+			class="cta-button entrance-info items-center flex w-fit gap-3 bg-black-700 text-white-500 font-grafton text-sm pl-4 px-2 py-2 rounded-full hover:bg-black-500 transition-colors duration-300 group"
+		>
+			Start a new project with us
+			<span
+				class="rocket-container w-8 h-8 rounded-full bg-brand-tertiary flex items-center justify-center text-xs overflow-hidden"
+				><svg
+					class="rocket-icon"
+					xmlns="http://www.w3.org/2000/svg"
+					height="24px"
+					viewBox="0 -960 960 960"
+					width="24px"
+					fill="#121314"
+					><path
+						d="m226-559 78 33q14-28 29-54t33-52l-56-11-84 84Zm142 83 114 113q42-16 90-49t90-75q70-70 109.5-155.5T806-800q-72-5-158 34.5T492-656q-42 42-75 90t-49 90Zm155-121.5q0-33.5 23-56.5t57-23q34 0 57 23t23 56.5q0 33.5-23 56.5t-57 23q-34 0-57-23t-23-56.5ZM565-220l84-84-11-56q-26 18-52 32.5T532-299l33 79Zm313-653q19 121-23.5 235.5T708-419l20 99q4 20-2 39t-20 33L538-80l-84-197-171-171-197-84 167-168q14-14 33.5-20t39.5-2l99 20q104-104 218-147t235-24ZM157-321q35-35 85.5-35.5T328-322q35 35 34.5 85.5T327-151q-25 25-83.5 43T82-76q14-103 32-161.5t43-83.5Zm57 56q-10 10-20 36.5T180-175q27-4 53.5-13.5T270-208q12-12 13-29t-11-29q-12-12-29-11.5T214-265Z"
+					></path></svg
+				></span
+			>
+		</a>
+		<p
+			class="entrance-info flex items-center text-[10px] uppercase tracking-widest text-black-300 pt-8"
+		>
+			Scroll Down <svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="20px"
+				viewBox="0 -960 960 960"
+				width="20px"
+				fill="#262424"
+				><path
+					d="M480-288 288-480l51-51 105 105v-294h72v294l105-105 51 51-192 192Z"
+				></path></svg
+			>
 		</p>
 	</article>
+</header>
 
-	<article
-		class="flex flex-row gap-2 md:gap-4 px-4 lg:px-10 items-end w-full justify-center h-[45vh] md:h-auto"
-	>
-		<Card__hero
-			title="Branding"
-			video={preview}
-			class="hidden lg:flex w-1/5 h-[250px]"
-		/>
-		<Card__hero
-			title="Multimedia"
-			video={preview}
-			class="flex w-1/3 lg:w-1/5 h-[220px] md:h-[280px]"
-		/>
-		<Card__hero
-			title="Photography"
-			video={preview}
-			class="flex w-1/3 lg:w-1/5 h-[280px] md:h-[320px]"
-		/>
-		<Card__hero
-			title="Videography"
-			video={preview}
-			class="flex w-1/3 lg:w-1/5 h-[220px] md:h-[280px]"
-		/>
-		<Card__hero
-			title="Wedding"
-			video={preview}
-			class="hidden lg:flex w-1/5 h-[250px]"
-		/>
-	</article>
-</section>
+<script>
+	import { gsap } from "gsap";
 
+	const dot = document.getElementById("status-dot");
+	const waves = [
+		document.getElementById("status-wave-1"),
+		document.getElementById("status-wave-2"),
+		document.getElementById("status-wave-3"),
+	];
+
+	// Colores que cíclicamente representan "activo"
+	const colors = ["#961728", "#DF2B43", "#C23289", "#DF2B43", "#961728"];
+
+	// Pulso del dot central
+	gsap.to(dot, {
+		scale: 1.1,
+		duration: 0.7,
+		repeat: -1,
+		yoyo: true,
+		ease: "sine.inOut",
+	});
+
+	// Cambio de color cíclico en el dot
+	gsap.to(dot, {
+		backgroundColor: colors,
+		duration: 3,
+		repeat: -1,
+		ease: "none",
+	});
+
+	// Ondas expansivas con stagger
+	waves.forEach((wave, i) => {
+		gsap.set(wave, { scale: 0.5, opacity: 0 });
+		gsap.to(wave, {
+			scale: 1.5,
+			opacity: 0,
+			duration: 1.8,
+			repeat: -1,
+			delay: i * 0.6,
+			ease: "power1.out",
+			keyframes: [
+				{ scale: 0.5, opacity: 0.6, duration: 0 },
+				{ scale: 1.5, opacity: 0, duration: 1.8 },
+			],
+		});
+
+		// Ondas también cambian de color sincronizadas con el dot
+		gsap.to(wave, {
+			backgroundColor: colors,
+			duration: 3,
+			repeat: -1,
+			ease: "none",
+		});
+	});
+
+	// --- Lógica del Modal de Video ---
+	const trigger = document.getElementById('video-trigger');
+	const modal = document.getElementById('video-modal');
+	const modalBg = document.getElementById('modal-bg');
+	const modalContent = document.getElementById('modal-content');
+	const modalVideo = document.getElementById('modal-video') as HTMLVideoElement;
+	const closeBtn = document.getElementById('close-modal');
+	const mainVideo = trigger?.querySelector('video') as HTMLVideoElement;
+
+	function openModal() {
+		if (!modal || !modalBg || !modalContent || !modalVideo || !mainVideo) return;
+		
+		// Sincronizar tiempo de reproducción
+		modalVideo.currentTime = mainVideo.currentTime;
+		
+		modal.classList.remove('hidden');
+		document.body.style.overflow = 'hidden';
+
+		const tl = gsap.timeline();
+		tl.to(modalBg, { opacity: 1, duration: 0.5, ease: "power2.out" })
+		  .to(modalContent, { opacity: 1, scale: 0.85, duration: 0.6, ease: "expo.out" }, "-=0.3")
+		  .to("#navbar", { y: -100, opacity: 0, duration: 0.4, ease: "power2.inOut" }, 0);
+		
+		modalVideo.play();
+	}
+
+	function closeModal() {
+		if (!modal || !modalBg || !modalContent || !modalVideo) return;
+
+		const tl = gsap.timeline({
+			onComplete: () => {
+				modal.classList.add('hidden');
+				modalVideo.pause();
+				document.body.style.overflow = '';
+			}
+		});
+
+		tl.to(modalContent, { opacity: 0, scale: 0.75, duration: 0.4, ease: "power2.in" })
+		  .to(modalBg, { opacity: 0, duration: 0.3, ease: "power2.in" }, "-=0.2")
+		  .to("#navbar", { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, "-=0.2");
+	}
+
+	trigger?.addEventListener('click', openModal);
+	closeBtn?.addEventListener('click', closeModal);
+	modalBg?.addEventListener('click', closeModal);
+
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+			closeModal();
+		}
+	});
+
+	// --- Animaciones de Entrada Cinematográfica ---
+	const entranceTl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.2 } });
+
+	entranceTl
+		.from(".entrance-title", { 
+			y: 100, 
+			opacity: 0, 
+			delay: 0.2 
+		})
+		.from(".entrance-subtitle", { 
+			y: 30, 
+			opacity: 0 
+		}, "-=0.8")
+		.from(".entrance-status", { 
+			x: -20, 
+			opacity: 0 
+		}, "-=0.6")
+		.from("#video-trigger", { 
+			scale: 0.9, 
+			opacity: 0, 
+			duration: 1.5 
+		}, "-=1.2")
+		.from(".entrance-stat", { 
+			y: 30, 
+			opacity: 0, 
+			stagger: 0.15 
+		}, "-=1")
+		// --- Contador de Estadísticas ---
+		.to({ val: 0 }, {
+			val: 25,
+			duration: 0.8,
+			ease: "power1.out",
+			onUpdate: function() {
+				const el = document.getElementById("count-projects");
+				if (el) el.innerText = Math.floor(this.targets()[0].val).toString();
+			}
+		}, "-=1.6")
+		.to({ val: 0 }, {
+			val: 10,
+			duration: 0.7,
+			ease: "power1.out",
+			onUpdate: function() {
+				const el = document.getElementById("count-years");
+				if (el) el.innerText = Math.floor(this.targets()[0].val).toString();
+			}
+		}, "-=1.7")
+		.from("#info-description", { 
+			y: 40, 
+			opacity: 0, 
+			duration: 1
+		}, "-=0.8")
+		.from("#info-slogan", { 
+			y: 30, 
+			opacity: 0, 
+			duration: 0.8
+		}, "-=0.6")
+		.from("#entrance-cta", { 
+			y: 30, 
+			opacity: 0, 
+			duration: 0.8 
+		}, "-=0.5")
+		.from("#info-scroll", { 
+			y: 20, 
+			opacity: 0, 
+			duration: 0.6
+		}, "-=0.4");
+
+	// --- Animación del Cohete y Botón en Hover ---
+	const ctaButtons = document.querySelectorAll('.cta-button');
+	
+	ctaButtons.forEach(button => {
+		const rocket = button.querySelector('.rocket-icon');
+		const rocketContainer = button.querySelector('.rocket-container');
+		
+		if (!rocket || !rocketContainer) return;
+
+		// Timeline para el cohete (vibración + lanzamiento)
+		const rocketTl = gsap.timeline({ paused: true });
+		rocketTl
+			.to(rocket, {
+				x: "random(-1, 1)",
+				y: "random(-1, 1)",
+				duration: 0.1,
+				repeat: 5,
+				ease: "none"
+			})
+			.to(rocket, {
+				x: 30,
+				y: -30,
+				duration: 0.4,
+				ease: "power2.in"
+			})
+			.set(rocket, { x: -30, y: 30 })
+			.to(rocket, {
+				x: 0,
+				y: 0,
+				duration: 0.6,
+				ease: "power2.out"
+			});
+
+		// Animación suave para el resto del botón
+		button.addEventListener('mouseenter', () => {
+			gsap.to(button, {
+				scale: 1.05,
+				backgroundColor: "#262424",
+				boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
+				duration: 0.3,
+				ease: "power2.out"
+			});
+			rocketTl.restart();
+		});
+
+		button.addEventListener('mouseleave', () => {
+			gsap.to(button, {
+				scale: 1,
+				backgroundColor: "#121314",
+				boxShadow: "0 0px 0px rgba(0, 0, 0, 0)",
+				duration: 0.3,
+				ease: "power2.in"
+			});
+		});
+	});
+</script>

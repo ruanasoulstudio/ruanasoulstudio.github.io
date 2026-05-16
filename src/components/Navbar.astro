@@ -4,13 +4,13 @@ import Item__menu from "./atoms/item__menu.astro";
 import CTA from "./atoms/CTA.astro";
 ---
 
-<!-- Full-screen logo splash overlay -->
+<!-- Full-screen logo splash overlay 
 <div
     id="logo-splash"
     class="fixed inset-0 z-9999 flex items-center justify-center bg-brand-secondary"
     style="pointer-events: none;"
 >
-    <!-- Inline SVG for animating individual letters -->
+    <!-- Inline SVG for animating individual letters 
     <svg
         id="logo-splash-svg"
         class="w-[200px] opacity-0 overflow-visible"
@@ -34,11 +34,11 @@ import CTA from "./atoms/CTA.astro";
         <path class="splash-letter" d="M99.09,100.64c0,1.72.65,3.35,1.81,4.62h-11.55c1.16-1.26,1.8-2.9,1.81-4.62v-13.77c0-1.72-.65-3.36-1.81-4.62h11.55c-1.16,1.26-1.8,2.9-1.81,4.62v13.77ZM95.12,75.79c2.19,0,3.97,1.1,3.97,2.44s-1.78,2.44-3.97,2.44-3.97-1.1-3.97-2.44,1.78-2.44,3.97-2.44Z" fill="#961728"/>
         <path class="splash-letter" d="M126.3,92.97c0,6.79-5.5,12.29-12.29,12.29s-12.29-5.5-12.29-12.29,5.5-12.29,12.29-12.29,12.29,5.5,12.29,12.29ZM118.95,83.33c-2.28-1.48-6.34,1.64-9.07,6.96-2.73,5.32-3.1,10.84-.82,12.32,2.28,1.48,6.34-1.64,9.07-6.96s3.1-10.84.82-12.32Z" fill="#961728"/>
     </svg>
-</div>
+</div>-->
 
 <nav
     id="navbar"
-    class="flex fixed left-0 right-0 justify-between items-center h-auto w-full z-50 top-0 pr-4 lg:pr-0 max-w-[1920px] mx-auto"
+    class="flex fixed left-0 right-0 justify-between items-center h-auto w-full z-50 top-0 px-4 py-2 lg:py-2 lg:px-6 max-w-[1920px] mx-auto"
 >
     <a
         id="logo-link"
@@ -46,40 +46,34 @@ import CTA from "./atoms/CTA.astro";
         
     >
         <img
-            class="w-[80px] px-6 py-4 h-full"
+            class="w-auto  h-6 lg:h-8"
             src={logotipo.src}
-            alt="logotipo wisegold"
+            alt="logotipo ruanasoulstudio"
             id="logo__top"
         />
     </a>
 
-    <ul id="menu-desktop" class="hidden lg:flex gap-6">
+    <ul id="menu-desktop" class="hidden lg:flex gap-6 items-center">
         <Item__menu class="menu-item" title="Our Team" link="#team" />
-        <Item__menu class="menu-item" title="Branding" link="#branding" />
-        <Item__menu class="menu-item" title="Web Creator" link="#web" />
-        <Item__menu class="menu-item" title="Photography" link="#photography" />
-        <Item__menu class="menu-item" title="Videography" link="#videography" />
-        <Item__menu class="menu-item" title="Social Content" link="#social" />
-    </ul>
-
-    <div class="hidden lg:flex items-center px-4">
+        <Item__menu class="menu-item" title="Services" link="#services" />
+        <Item__menu class="menu-item" title="Projects" link="#projects" />
         <CTA />
-    </div>
+    </ul>
     <!-- Burger button — mobile only -->
     <button
         id="menu-toggle"
         aria-label="Toggle menu"
         aria-expanded="false"
-        class="flex w-auto pl-4 pr-6 h-auto justify-center items-center lg:hidden"
+        class="flex w-4 pl-4 pr-6 h-4 justify-center items-center lg:hidden"
     >
         <div class="relative w-auto h-auto">
             <span
                 id="burger-line-1"
-                class="absolute top-1/2 left-0 -translate-y-1/2 w-7 h-[3px] bg-gray-700 rounded-full"
+                class="absolute top-1/2 left-0 -translate-y-1/2 w-7 h-[3px] bg-black-700 rounded-full"
             ></span>
             <span
                 id="burger-line-2"
-                class="absolute top-1/2 left-0 -translate-y-1/2 w-7 h-[3px] bg-gray-700 rounded-full"
+                class="absolute top-1/2 left-0 -translate-y-1/2 w-7 h-[3px] bg-black-700 rounded-full"
             ></span>
         </div>
     </button>
@@ -89,14 +83,14 @@ import CTA from "./atoms/CTA.astro";
 <!-- Mobile menu overlay — full screen, controlled by GSAP -->
 <div
     id="mobile-menu"
-    class="fixed inset-0 z-40 flex flex-col justify-between pb-4 bg-black-900 pt-20 overflow-hidden lg:hidden"
+    class="fixed inset-0 z-40 flex flex-col justify-between pb-4 bg-black-900 pt-20 overflow-hidden lg:hidden bg-brand-tertiary"
     style="clip-path: inset(0 0 100% 0); pointer-events: none;"
 >
-    <ul class="flex flex-col px-6 mt-4">
+    <ul class="flex flex-col px-6 mt-4 gap-1">
         <li class="mobile-menu-item">
             <a
                 href="#team"
-                class="mobile-menu-link flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-gray-300 tracking-widest hover:text-accent transition-colors duration-200"
+                class="mobile-menu-link font-anton flex items-center justify-between py-5 w-full text-3xl  text-black-700"
             >
                 Our Team
                 <svg
@@ -117,7 +111,7 @@ import CTA from "./atoms/CTA.astro";
         <li class="mobile-menu-item">
             <a
                 href="#branding"
-                class="mobile-menu-link flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-gray-300 tracking-widest hover:text-accent transition-colors duration-200"
+                class="mobile-menu-link font-anton flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-black-700 tracking-widest hover:text-accent transition-colors duration-200"
             >
                 Branding
                 <svg
@@ -138,7 +132,7 @@ import CTA from "./atoms/CTA.astro";
         <li class="mobile-menu-item">
             <a
                 href="#web"
-                class="mobile-menu-link flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-gray-300 tracking-widest hover:text-accent transition-colors duration-200"
+                class="mobile-menu-link font-anton flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-black-700 tracking-widest hover:text-accent transition-colors duration-200"
             >
                 Web Creator
                 <svg
@@ -159,7 +153,7 @@ import CTA from "./atoms/CTA.astro";
         <li class="mobile-menu-item">
             <a
                 href="#photography"
-                class="mobile-menu-link flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-gray-300 tracking-widest hover:text-accent transition-colors duration-200"
+                class="mobile-menu-link font-anton flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-black-700 tracking-widest hover:text-accent transition-colors duration-200"
             >
                 Photography
                 <svg
@@ -180,7 +174,7 @@ import CTA from "./atoms/CTA.astro";
         <li class="mobile-menu-item">
             <a
                 href="#videography"
-                class="mobile-menu-link flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-gray-300 tracking-widest hover:text-accent transition-colors duration-200"
+                class="mobile-menu-link font-anton flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-black-700 tracking-widest hover:text-accent transition-colors duration-200"
             >
                 Videography
                 <svg
@@ -201,7 +195,7 @@ import CTA from "./atoms/CTA.astro";
         <li class="mobile-menu-item">
             <a
                 href="#social"
-                class="mobile-menu-link flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-gray-300 tracking-widest hover:text-accent transition-colors duration-200"
+                class="mobile-menu-link font-anton flex items-center justify-between py-5 w-full text-3xl font-bebas-neue text-black-700 tracking-widest hover:text-accent transition-colors duration-200"
             >
                 Social Content
                 <svg
@@ -221,13 +215,7 @@ import CTA from "./atoms/CTA.astro";
         </li>
     </ul>
 
-    <p class="text-gray-300 text-sm px-6">
-        We are currently in our development stage, preparing to <span
-            class="text-accent">launch in September 2026</span
-        >. This deliberate timeline allows us to refine compliance, strengthen
-        banking relationships, and build a foundation that is as resilient as it
-        is transparent.
-    </p>
+    
 </div>
 
 <script>

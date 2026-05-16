@@ -3,15 +3,17 @@
 @theme {
   --color-brand-primary: #961728;
   --color-brand-secondary: #EEE5DA;
+  --color-brand-tertiary: #ECF7F0;
   --color-gray-300: #DDDBDB;
   --color-gray-500: #B3B3B3;
   --color-gray-700: #666666;
   --color-gray-900: #686868;
   --color-black-500: #262424;
+  --color-black-700: #1C1C1C;
   --color-black-300: #686868;
   --color-white-500: #FEFEFE;
   --font-grafton: "UM Grafton", sans-serif;
-  --font-grassroots: "Grassroots", sans-serif;
+  --font-anton: "Anton", sans-serif;  
 }
 
 @font-face {
@@ -55,6 +57,17 @@
 
 :root {
   font-family: var(--font-grafton);
-  background-color: var(--color-brand-secondary);
+  background-color: var(--color-brand-tertiary);
   color: var(--color-black-500);
+}
+
+@utility text-gradient-brand {
+  background: linear-gradient(90deg, #DF2B43 0.03%, #672525 47.6%, #C23289 99.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility text-fill-current {
+  -webkit-text-fill-color: currentColor;
 }
