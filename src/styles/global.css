@@ -57,8 +57,9 @@
 
 :root {
   font-family: var(--font-grafton);
-  background-color: var(--color-brand-tertiary);
   color: var(--color-black-500);
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
 }
 
 @utility text-gradient-brand {
@@ -70,4 +71,37 @@
 
 @utility text-fill-current {
   -webkit-text-fill-color: currentColor;
+}
+
+/* ── Custom Scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #666666;
+  border-radius: 9999px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #666666 transparent;
 }
