@@ -4,21 +4,21 @@ import Item__menu from "./atoms/item__menu.astro";
 import CTA from "./atoms/CTA.astro";
 ---
 
-<!-- Curtain LEFT panel 
+<!-- Curtain LEFT panel -->
 <div
     id="curtain-left"
     class="fixed inset-0 right-[49%] z-[9998] bg-brand-primary"
     style="pointer-events: none; transform-origin: left center;"
 ></div>
 
-Curtain RIGHT panel 
+<!-- Curtain RIGHT panel -->
 <div
     id="curtain-right"
     class="fixed top-0 bottom-0 left-[49%] z-[9998] bg-brand-primary"
     style="pointer-events: none; transform-origin: right center; right: -20px;"
 ></div>
 
- Logo centered on top of curtains 
+<!-- Logo centered on top of curtains -->
 <div
     id="logo-splash"
     class="fixed inset-0 z-[9999] flex items-center justify-center"
@@ -47,7 +47,7 @@ Curtain RIGHT panel
         <path class="splash-letter" d="M99.09,100.64c0,1.72.65,3.35,1.81,4.62h-11.55c1.16-1.26,1.8-2.9,1.81-4.62v-13.77c0-1.72-.65-3.36-1.81-4.62h11.55c-1.16,1.26-1.8,2.9-1.81,4.62v13.77ZM95.12,75.79c2.19,0,3.97,1.1,3.97,2.44s-1.78,2.44-3.97,2.44-3.97-1.1-3.97-2.44,1.78-2.44,3.97-2.44Z" fill="#EEE5DA"/>
         <path class="splash-letter" d="M126.3,92.97c0,6.79-5.5,12.29-12.29,12.29s-12.29-5.5-12.29-12.29,5.5-12.29,12.29-12.29,12.29,5.5,12.29,12.29ZM118.95,83.33c-2.28-1.48-6.34,1.64-9.07,6.96-2.73,5.32-3.1,10.84-.82,12.32,2.28,1.48,6.34-1.64,9.07-6.96s3.1-10.84.82-12.32Z" fill="#EEE5DA"/>
     </svg>
-</div>-->
+</div>
 
 <nav
     id="navbar"
@@ -326,7 +326,11 @@ Curtain RIGHT panel
         }
     }
 
-    document.addEventListener("DOMContentLoaded", playIntro);
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", playIntro);
+    } else {
+        playIntro();
+    }
 
     // ─────────────────────────────────────────────
     // NAVBAR — Hide on scroll down, show on scroll up

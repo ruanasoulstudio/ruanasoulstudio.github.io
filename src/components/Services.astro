@@ -1,0 +1,319 @@
+---
+import "../styles/global.css";
+
+const services = [
+  {
+    id: "photography",
+    title: "PHOTOGRAPHY AND VIDEOGRAPHY FOR EVENTS",
+    shortDesc:
+      "Documenting your most precious milestones with cinematic artistry.",
+    slogan:
+      "CAPTURING RAW EMOTIONS WITH A CINEMATIC TOUCH. PRESERVING THE AUTHENTIC SOUL OF YOUR CELEBRATIONS.",
+    image: "/images/services_photography.png",
+    meta2: "Event Production",
+    meta3: "Sony FX3, DJI Mavic, DaVinci Resolve",
+    meta4: "Cinematic Film & Gallery",
+  },
+  {
+    id: "branding",
+    title: "BRANDING CREATION AND ASSETS DESIGN",
+    shortDesc: "Crafting distinct visual identities that resonate and endure.",
+    slogan:
+      "CRAFTING DISTINCT IDENTITIES THAT RESONATE AND ENDURE. BUILDING ASSETS TO ELEVATE YOUR BRAND'S STORY.",
+    image: "/images/services_branding.png",
+    meta2: "Brand Strategy",
+    meta3: "Adobe Illustrator, Photoshop, InDesign",
+    meta4: "Brand Guidelines & Assets",
+  },
+  {
+    id: "ux-ui",
+    title: "UX/UI DESIGN AND WEB DEVELOPMENT",
+    shortDesc:
+      "Designing intuitive interfaces, building robust custom websites.",
+    slogan:
+      "EVERY DETAIL WE CRAFT CARRIES CLARITY AND CONFIDENCE. DESIGNING WEBSITES THAT WORK AND FEEL RIGHT.",
+    image: "/images/services_ux_ui.png",
+    meta2: "UX/UI Design",
+    meta3: "Figma, Adobe Creative Suite",
+    meta4: "Landing Page & Web App",
+  },
+  {
+    id: "content",
+    title: "CONTENT CREATION FOR SOCIAL MEDIA",
+    shortDesc: "Curating stunning aesthetics and stories for digital spaces.",
+    slogan:
+      "ENGAGING STORYTELLING CURATED FOR DIGITAL SPACES. PRODUCING VISUAL CONTENT TO CAPTIVATE AUDIENCES.",
+    image: "/images/services_social_media.png",
+    meta2: "Creative Direction",
+    meta3: "Figma, Premiere Pro, After Effects",
+    meta4: "Social Campaign Assets",
+  },
+  {
+    id: "seo-aeo",
+    title: "SEO & AEO FOR WEB STRATEGY",
+    shortDesc:
+      "Positioning your brand where people look for you, across all search models.",
+    slogan:
+      "OPTIMIZING YOUR DIGITAL FOOTPRINT FOR SEARCH AND AI. ENSURING YOUR BRAND IS VISIBLE AND AUTHORITATIVE.",
+    image: "/images/services_seo_aeo.png",
+    meta2: "Search Strategy",
+    meta3: "Google Analytics, Semrush, Schema Markup",
+    meta4: "Visibility Optimization",
+  },
+];
+
+const defaultActiveIndex = 0;
+const defaultActive = services[defaultActiveIndex];
+---
+
+<services-section
+  id="services"
+  data-services={JSON.stringify(services)}
+  class="w-full pt-16 pb-8 px-4 md:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center justify-center selection:bg-brand-primary selection:text-white"
+>
+  <div
+    class="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-4 lg:gap-48 items-center max-lg:flex-col-reverse"
+  >
+    <!-- Left Column: Services Header & List (span 7 on lg) -->
+    <div class="flex flex-col w-full justify-between">
+      <span class="text-base mb-12 font-bold text-gray-700 uppercase max-lg:hidden">SERVICES</span>
+
+      <div id="mobile-scroll-container" class="flex flex-col border-t border-gray-300 w-full max-lg:flex-row max-lg:overflow-x-auto max-lg:gap-4 max-lg:snap-x max-lg:snap-mandatory max-lg:pb-4 max-lg:pt-4 max-lg:[&::-webkit-scrollbar]:hidden max-lg:[-ms-overflow-style:none] max-lg:scrollbar-none">
+        {
+          services.map((service, index) => {
+            const isActive = index === defaultActiveIndex;
+            return (
+              <div
+                data-service-id={service.id}
+                data-index={index}
+                class={`service-item group cursor-pointer py-2 md:py-4 flex flex-col gap-1 transition-all duration-300 ease-out max-lg:shrink-0 max-lg:w-[75vw] max-lg:sm:w-[280px] max-lg:snap-center max-lg:border max-lg:border-black/5 max-lg:rounded-2xl max-lg:px-6 max-lg:bg-[linear-gradient(90deg,rgba(223,43,67,0.05)_0%,rgba(103,37,37,0.05)_48%,rgba(194,50,137,0.05)_100%)] max-lg:shadow-xl max-lg:shadow-black/4 max-lg:py-5 ${isActive ? "is-active" : ""}`}
+              >
+                <h3 class="service-title text-base md:text-xl lg:text-lg font-bold uppercase transition-all duration-300 ease-out group-[.is-active]:text-brand-primary text-gray-700 group-hover:text-black-700">
+                  {service.title}
+                </h3>
+                <p class="service-desc text-xs md:text-sm font-light leading-relaxed max-w-xl transition-all duration-300 ease-out group-[.is-active]:text-gray-700 text-gray-600 group-hover:text-gray-700">
+                  {service.shortDesc}
+                </p>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <!-- Mobile Pagination Dots UX Indicator -->
+      <div class="hidden max-lg:flex w-full justify-center gap-2 mt-1 pb-4">
+        {
+          services.map((_, index) => {
+            const isActive = index === defaultActiveIndex;
+            return (
+              <div
+                id={`dot-${index}`}
+                class={`h-1.5 rounded-full transition-all duration-300 ${isActive ? "w-6 bg-brand-primary" : "w-2 bg-[#686868]/30"}`}
+              ></div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <!-- Right Column: Sticky Dynamic Details (span 5 on lg) -->
+    <div
+      class="lg:col-span-5 lg:sticky lg:top-24 flex flex-col justify-between w-full lg:min-h-[75vh] min-h-[500px] max-lg:min-h-[400px] gap-2 max-lg:gap-6 mt-4 lg:mt-0 max-lg:mt-0"
+    >
+      <!-- Upper: Dynamic Slogan -->
+      <div class="w-full flex justify-center lg:justify-end">
+        <p
+          id="dynamic-slogan"
+          class="font-bold text-base uppercase text-black-700 leading-[1.35] text-center lg:text-end w-full lg:w-4/5 min-h-[4.05rem] lg:min-h-[2.7rem]"
+        >
+          {defaultActive.slogan}
+        </p>
+      </div>
+
+      <!-- Center: Dynamic Image Preview -->
+      <div class="w-full flex justify-center lg:justify-end">
+        <div
+          class="w-full max-w-[550px] aspect-16/10 overflow-hidden rounded-[4px] border border-black/5 shadow-sm relative bg-gray-300"
+        >
+          <img
+            id="dynamic-image"
+            src={defaultActive.image}
+            alt={defaultActive.title}
+            class="w-full h-full object-cover select-none pointer-events-none"
+          />
+        </div>
+      </div>
+
+      <!-- Lower: Dynamic Metadata -->
+      <div class="w-full flex justify-center lg:justify-end">
+        <div
+          id="dynamic-meta"
+          class="flex flex-col text-center lg:text-end text-xs md:text-sm font-grafton font-medium text-[#686868] space-y-[6px] w-full"
+        >
+          
+          <span id="meta-category" class="block uppercase tracking-wider"
+            >{defaultActive.meta2}</span
+          >
+          <span id="meta-tools" class="block text-[#686868]/70 font-light"
+            >{defaultActive.meta3}</span
+          >
+          <span id="meta-type" class="block text-[#686868]/70 font-light"
+            >{defaultActive.meta4}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</services-section>
+
+<script>
+  import { gsap } from "gsap";
+
+  class ServicesSection extends HTMLElement {
+    currentActiveIndex: number;
+    activeTimeline: gsap.core.Timeline | null;
+    isClickScrolling: boolean;
+
+    constructor() {
+      super();
+      this.currentActiveIndex = 0;
+      this.activeTimeline = null;
+      this.isClickScrolling = false;
+    }
+
+    connectedCallback() {
+      let servicesData: any[] = [];
+      try {
+        servicesData = JSON.parse(this.dataset.services || "[]");
+      } catch (e) {
+        console.error(e);
+        return;
+      }
+
+      const items = this.querySelectorAll(".service-item");
+      const sloganEl = this.querySelector("#dynamic-slogan");
+      const imgEl = this.querySelector("#dynamic-image") as HTMLImageElement | null;
+      const metaCatEl = this.querySelector("#meta-category");
+      const metaToolsEl = this.querySelector("#meta-tools");
+      const metaTypeEl = this.querySelector("#meta-type");
+      const scrollContainer = this.querySelector("#mobile-scroll-container");
+
+      const activateItem = (index: number) => {
+        if (index === this.currentActiveIndex) return;
+        this.currentActiveIndex = index;
+        const data = servicesData[index];
+
+        // 1. Update left-side category list visual state
+        items.forEach((el, elIdx) => {
+          if (elIdx === index) {
+            el.classList.add("is-active");
+          } else {
+            el.classList.remove("is-active");
+          }
+        });
+
+        // Update mobile pagination dots
+        servicesData.forEach((_, i) => {
+          const dot = this.querySelector(`#dot-${i}`);
+          if (dot) {
+            if (i === index) {
+              dot.classList.remove("w-2", "bg-[#686868]/30");
+              dot.classList.add("w-6", "bg-brand-primary");
+            } else {
+              dot.classList.remove("w-6", "bg-brand-primary");
+              dot.classList.add("w-2", "bg-[#686868]/30");
+            }
+          }
+        });
+
+        // 2. Perform GSAP Transition on right-side details
+        if (this.activeTimeline) {
+          this.activeTimeline.kill();
+        }
+
+        this.activeTimeline = gsap.timeline();
+
+        // Phase A: Fade out current elements
+        this.activeTimeline.to(
+          [sloganEl, imgEl, metaCatEl, metaToolsEl, metaTypeEl],
+          {
+            opacity: 0,
+            y: -10,
+            duration: 0.25,
+            stagger: 0.03,
+            ease: "power2.in",
+            onComplete: () => {
+              // Swap contents
+              if (sloganEl) sloganEl.textContent = data.slogan;
+              if (imgEl) {
+                imgEl.src = data.image;
+                imgEl.alt = data.title;
+              }
+              if (metaCatEl) metaCatEl.textContent = data.meta2;
+              if (metaToolsEl) metaToolsEl.textContent = data.meta3;
+              if (metaTypeEl) metaTypeEl.textContent = data.meta4;
+            },
+          },
+        );
+
+        // Phase B: Fade them back in with a premium slide-up
+        this.activeTimeline.fromTo(
+          [sloganEl, imgEl, metaCatEl, metaToolsEl, metaTypeEl],
+          {
+            opacity: 0,
+            y: 15,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.35,
+            stagger: 0.04,
+            ease: "power2.out",
+          },
+        );
+      };
+
+      // Handle Clicks
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          const indexAttr = item.getAttribute("data-index");
+          if (indexAttr === null) return;
+          const index = parseInt(indexAttr, 10);
+          
+          // Flag to prevent IntersectionObserver from re-firing during smooth scroll
+          this.isClickScrolling = true;
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          activateItem(index);
+          
+          // Reset click flag
+          setTimeout(() => { this.isClickScrolling = false; }, 600);
+        });
+      });
+
+      // Handle Horizontal Scroll Synchronization (Mobile)
+      if (window.innerWidth < 1024 && scrollContainer) {
+        const observer = new IntersectionObserver((entries) => {
+          if (this.isClickScrolling) return; // Ignore if user clicked to scroll
+          
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const indexAttr = entry.target.getAttribute("data-index");
+              if (indexAttr !== null) {
+                activateItem(parseInt(indexAttr, 10));
+              }
+            }
+          });
+        }, {
+          root: scrollContainer,
+          threshold: 0.75 // Trigger when 75% of the card is visible
+        });
+
+        items.forEach(item => observer.observe(item));
+      }
+    }
+  }
+
+  if (!customElements.get("services-section")) {
+    customElements.define("services-section", ServicesSection);
+  }
+</script>

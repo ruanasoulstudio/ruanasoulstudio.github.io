@@ -50,7 +50,7 @@ const isPrimary = (index: number) => (index >= 14 && index <= 17) || (index >= 2
 
     <!-- Texto central animado (con mix-blend-difference individual) -->
     <div class="text-center parallax-text w-full lg:px-24 pointer-events-none">
-      <h2 class="text-2xl lg:text-5xl leading-[1.2] mx-auto font-black uppercase parallax-text-container">
+      <h2 class="text-xl lg:text-5xl leading-[1.2] mx-auto font-black uppercase parallax-text-container">
         {teamWords.map((word, index) => (
           <><span class={`relative z-20 inline-block team-word opacity-0 translate-y-8 ${isPrimary(index) ? 'text-brand-primary' : 'text-white mix-blend-difference'}`}>{word}</span>{index !== teamWords.length - 1 && " "}</>
         ))}
